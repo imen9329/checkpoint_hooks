@@ -1,0 +1,9 @@
+input {
+    display: none;
+}
+.star {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    transition: color 200ms;
+}

@@ -1,0 +1,8 @@
+html body {
+    background: radial-gradient(#9999ff, #000220);
+}
+.addMovieBtn {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
