@@ -2,14 +2,16 @@ import React from "react";
 import "./MovieList.css";
 import MovieCard from "../MovieCard/MovieCard";
 
-const MovieList = ({ movies, searchedValue, rating, ratingValue }) => {
+const MovieList = ({ movies, searchedValue, rateValue }) => {
     return (
         <div className="movies">
             {movies
-                .filter((movie) =>
-                    movie.title
-                        .toLowerCase()
-                        .includes(searchedValue.toLowerCase())
+                .filter(
+                    (movie) =>
+                        movie.title
+                            .toLowerCase()
+                            .includes(searchedValue.toLowerCase()) &&
+                        movie.rating >= rateValue
                 )
                 .map((e, index) => (
                     <MovieCard

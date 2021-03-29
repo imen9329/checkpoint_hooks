@@ -6,3 +6,8 @@ html body {
     justify-content: center;
     margin: 40px;
 }
+.Footer {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
