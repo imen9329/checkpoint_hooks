@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import MyNavBar from "./components/MyNavBar/MyNavBar";
-import MovieList from "./components/MovieList/MovieList";
-import AddMovie from "./components/AddMovie/AddMovie";
-import MovieDescription from "./components/MovieDescription/MovieDescription";
 
-function App() {
+const MovieDescription = (props) => {
+    const MovieId = props.match.params.MovieId;
     const [movies, setMovies] = useState([
         {
             title: "Titanic",
@@ -90,55 +84,13 @@ function App() {
             id: 8,
         },
     ]);
-
-    const [searching, setSearching] = useState("");
-
-    const [rateValue, setRateValue] = useState(0);
-
-    const getRateValue = (input) => {
-        setRateValue(input);
-    };
-
-    const getNewMovie = (newMovie) => {
-        setMovies([...movies, newMovie]);
-    };
-
-    // const MovieDescription = (movies) => {
-    //     return (
-    //         <div>
-    //             <iframe src={movies.trailer} /> <br />
-    //             <p>{movies.description}</p>
-    //         </div>
-    //     );
-    // };
+    const movie = movies.find((movie) => movie.id === Number(MovieId));
     return (
-        <div className="App">
-            <MyNavBar setSearching={setSearching} getRateValue={getRateValue} />
-            <div className="addMovieBtn">
-                <AddMovie getNewMovie={getNewMovie} />
-            </div>
-            <MovieList
-                movies={movies}
-                searchedValue={searching}
-                rateValue={rateValue}
-            />
-            <footer className="Footer">
-                <h6
-                    style={{
-                        fontStyle: "italic",
-                        color: "#fff",
-                    }}
-                >
-                    ©️ CopyRights are reserved 2021/2022
-                </h6>
-            </footer>
-            <Switch>
-                <Route path="/MovieDescription/:MovieId">
-                    <MovieDescription props />
-                </Route>
-            </Switch>
+        <div>
+            <iframe src={movie.trailer} frameborder="0"></iframe> <br />
+            <p>{movie.description}</p>
         </div>
     );
-}
+};
 
-export default App;
+export default MovieDescription;

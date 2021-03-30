@@ -17,8 +17,10 @@ const MovieList = ({ movies, searchedValue, rateValue }) => {
                     <MovieCard
                         title={e.title}
                         description={e.description}
+                        trailer={e.trailer}
                         posterUrl={e.posterUrl}
                         rating={e.rating}
+                        id={e.id}
                         key={index}
                     />
                 ))}
